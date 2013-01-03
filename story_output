@@ -1,0 +1,52 @@
+function story_output(){
+
+  ob_start(); //initiate buffer; all echoed content will be put into buffer instead of being echoed *PHP-FUNCTION*
+
+	the_content(); //the article content (echoed) *WP-FUNCTION*
+
+	$content = ob_get_clean(); //Retrieve Content of buffer, pull into variable and also clear the buffer :: String/Text variable type *PHP-FUNCTION*
+	$content = strip_tags($content);
+	
+	$content_splitter = " <!--nextpage--> ";
+
+	$size_of_content = sizeof( explode(" ", $content) ); //Get number of words (which should equal the length of the array right?) *PHP-FUNCTION*
+	
+	$split_into_words = preg_split( "/ /", $content ); //Split content by spaces :: variable is an array *PHP-FUNCTION*
+	
+	$og_content_counter=0;
+	$times = 0;
+	$num = 1;
+	$page_length = 120;
+	
+	while ( $og_content_counter < $size_of_content ) {
+	
+			$indexing_og_content[ $og_content_counter + $times ] = $split_into_words[ $og_content_counter ]; //indexing 0G content array
+			
+			if ( ($og_content_counter/$num) == $page_length ) { //We\re at the 120th word...insert content+splitting tag
+				
+				$num++;
+				
+				$size_of_indexed_content = count($indexing_og_content);//sizeof( explode(" ", $indexing_og_content) ); //length of indexed array
+				
+				$indexing_og_content[$size_of_indexed_content + 1 ] = $content_splitter ; //insert content splitting tag after last entry 
+				
+				$times++;
+				
+			}
+			
+			$og_content_counter++;
+		
+	}
+	
+	$boowow;
+	
+	foreach ($indexing_og_content as $baptist_content) { //Rebuilding the article
+		
+		$boowow .= $baptist_content." ";
+				
+	}
+	$boowow = apply_filters( the_content, $boowow ); //Let wordpress do its thing on the content with the new additions this time
+	$boowow = str_replace(']]>', ']]&gt;', $boowow);
+	
+	echo $boowow;
+}
