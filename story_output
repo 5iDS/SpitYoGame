@@ -5,7 +5,7 @@ function story_output( $page_length ){
 	the_content(); //the article content (echoed) *WP-FUNCTION*
 
 	$content = ob_get_clean(); //Retrieve Content of buffer, pull into variable and also clear the buffer :: String/Text variable type *PHP-FUNCTION*
-	$content = strip_tags($content);
+	//$content = strip_tags($content); //uncomment to remove html tags
 	
 	$content_splitter = " <!--nextpage--> ";
 
