@@ -1,4 +1,4 @@
-function story_output(){
+function story_output( $page_length ){
 
   ob_start(); //initiate buffer; all echoed content will be put into buffer instead of being echoed *PHP-FUNCTION*
 
@@ -16,7 +16,7 @@ function story_output(){
 	$og_content_counter=0;
 	$times = 0;
 	$num = 1;
-	$page_length = 120;
+	//$page_length = 120;
 	
 	while ( $og_content_counter < $size_of_content ) {
 	
