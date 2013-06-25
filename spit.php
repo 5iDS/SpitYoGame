@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Spit Yo Game
-Description: A more repectable approach to WP EMails.
+Description: Inserts custom tags/content after every x amount of words in wordpress loop. Replaces the_content() although re-applies the filters.
 Version: 0.5.0
 Author: ...a few good HipHoppers...
 Author URI: http://www.5ivedesign.co.za
