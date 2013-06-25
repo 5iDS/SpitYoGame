@@ -11,12 +11,7 @@ Author URI: http://www.5ivedesign.co.za
 #
 # @param 	int $page_length
 # @param	string $content_splitter
-#
-# @return	echo string
-#
-# @package	SYG
-# @since	0.5.0
-# @author	a.Work.of.Hip.Hop...www.5ivedesign.co.za
+# @return	echo string $gob
 #
 #-----------------------------------------------------------------
 */
